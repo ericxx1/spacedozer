@@ -71,11 +71,11 @@ module SpaceDozer
     def random; [rand(width), rand(height)] end
 
     def width
-      @width ||= (Curses.lines > 50) ? 50 : Curses.lines
+      @width ||= (Curses.lines > 40) ? 40 : Curses.lines
     end
 
     def height
-      @height ||= (Curses.cols > 150) ? 150 : Curses.cols
+      @height ||= (Curses.cols > 120) ? 120 : Curses.cols
     end
 
     def refresh
