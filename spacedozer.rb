@@ -59,7 +59,7 @@ module SpaceDozer
   class Game
 
     def rocks; @rocks ||= [] end
-    def dirts; @dirts ||= [] end
+    def dirts; @dirts ||= [] end  # hooray for grammarz
     def warpgates; @warpgates ||= [] end
     def aliens; @aliens ||= [] end
     def dozer; @dozer ||= Dozer.new(self) end
@@ -107,15 +107,6 @@ module SpaceDozer
 
     def game_time
       (Time.now - @time).to_i
-    end
-
-    def die!
-      stop
-
-      wipe
-      Curses.refresh
-
-      Curses.refresh
     end
 
     def start
