@@ -99,7 +99,7 @@ module SpaceDozer
     def left;  dozer.left  end
     def right; dozer.right end
 
-    def listen
+    def listen_for_keypress
       if (keypress = Settings[:keymap][Curses.getch])
         send keypress
       end
@@ -125,7 +125,7 @@ module SpaceDozer
       while running?
         return(stop) if dozer.dead?
 
-        listen
+        listen_for_keypress
 
         warpgates.reject!(&:dead?)
         aliens.reject!(&:dead?)
@@ -135,6 +135,7 @@ module SpaceDozer
 
           aliens.each(&:spawn)
           aliens.each(&:move)
+          return(stop) if dozer.dead?
 
           @turn = Time.now
         end
