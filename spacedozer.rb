@@ -105,10 +105,6 @@ module SpaceDozer
       end
     end
 
-    def game_time
-      (Time.now - @time).to_i
-    end
-
     def start
       @running = true
       @time = Time.now
